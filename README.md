@@ -1,7 +1,6 @@
 <p align="center">
-  <img width="600" height="216" alt="Fizz" src="logo.png">
+  <img width="500" height="150" alt="MemScout" src="logo.png">
 </p>
-# Memscout
 
 ## Introduction
 
