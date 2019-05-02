@@ -1,0 +1,102 @@
+<!--
+  Copyright (c) Facebook, Inc. and its affiliates.
+
+  This source code is licensed under the MIT license found in the
+  LICENSE file in the root directory of this source tree.
+-->
+
+<!doctype html>
+<html>
+	<link rel="stylesheet" href="styles.css" title="external style sheet">
+	<head>
+		<title>Memscout</title>
+	</head>
+
+	<body>
+    <div class="header">
+      <h1> MemScout </h1>
+      <p> Heap Profile Visualization and Analytics </p>
+    </div>
+    <div class="nav">
+			<input type="file" name="file" id="inputFile" class="inputfile" />
+			<label for="inputFile">Choose a file...</label>
+
+      <button class="button" id='Test2'><span> Test Input 2</span></button>
+      <button class="button" id='Test1'><span> Test Input 1</span></button>
+
+    </div>
+    <div class="content">
+      <button class='collapsible'> Summary Stats</button>
+		  <div class='panel'>
+			  <table id='summary' width=100%> </table>
+		  </div>
+
+		  <button class='collapsible'>Definitions</button>
+		  <div class='panel'>
+		  	<table id='definitions' width=100%></table>
+		  </div>
+
+		  <button class='collapsible'>Bin size distribution</button>
+		  <div class='panel'>
+		  	<div id="pie-chart-area" style="width:80%; float: right"> </div>
+		  	<div id="pie-chart-area2" style="width:80%; float: right"> </div>
+		  </div>
+
+		  <button class='collapsible'>Bin size activity</button>
+		  <div class='panel'>
+		  	<div id="scatter-chart-area1" style="width:80%; float: right"> </div>
+		  	<div id="scatter-chart-area2" style="width:80%; float: right"> </div>
+		  	<div id="scatter-chart-area3" style="width:80%; float: right"> </div>
+		  </div>
+
+		  <button class='collapsible'>Arena histograms</button>
+		  <div class='hist-panel'>
+        <div class="histogram" id="bar-view"></div>
+        <div class="histogram" id="bar-view2"></div>
+		  </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.3.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@4.0.0"></script>
+
+		<script src="pie.js" type="text/javascript"></script>
+		<script src="file.js" type="text/javascript"></script>
+		<script src="tables.js" type="text/javascript"></script>
+		<script src="scatter.js" type="text/javascript"></script>
+		<script src="bar.js" type="text/javascript"></script>
+		<script src="test_input.js" type="text/javascript"></script>
+
+<head>
+</head>
+<div id="view"></div>
+		<script>
+
+    function callback1() {
+      loadContents(JSON.stringify(getSampleInput1()));
+    }
+    function callback2() {
+      loadContents(JSON.stringify(getSampleInput2()));
+    }
+
+		initTables();
+
+		var acc = document.getElementsByClassName("collapsible");
+			var i;
+
+			for (i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.display === "block") {
+						panel.style.display = "none";
+					} else {
+						panel.style.display = "block";
+					}
+				});
+			}
+
+    document.getElementById('Test1').addEventListener('click', callback1, false);
+    document.getElementById('Test2').addEventListener('click', callback2, false);
+		</script>
+	</body>
+</html>

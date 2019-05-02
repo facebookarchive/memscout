@@ -1,0 +1,182 @@
+/*
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+*/
+.header {
+  font-family: Helvetica, sans-serif;
+  padding: 10px;
+  text-align: center;
+  background: #3b5998;
+  color: white;
+  font-size: 30px;
+}
+
+.nav {
+  overflow: hidden;
+  background-color: #222;
+  padding: 20px;
+  height: 70px;
+}
+
+.nav .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #777;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 18px;
+  font-family: Helvetica;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+	float: right;
+}
+
+.nav .upload-button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #FA3;
+  border: none;
+  color: #000;
+  text-align: center;
+  font-size: 18px;
+  font-family: Helvetica;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.nav .button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.nav .upload-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.nav .button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.nav .button:hover span {
+  padding-right: 25px;
+}
+
+.nav .button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.nav .inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.nav .inputfile + label {
+  	font-size: 18px;
+  	font-family: Helvetica;
+    font-weight: 700;
+    color: white;
+    background-color: #3b5998;/*#FF6347;*/
+    display: inline-block;
+  	padding: 20px;
+  	width: 200px;
+		border-radius: 5px;
+    transition: background-color 0.5s ease-out;
+}
+
+.nav .inputfile:focus + label,
+.nav .inputfile + label:hover {
+    background-color: #FF4500;
+}
+
+.nav .inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  background-color: #333;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	/*width: 100%;*/
+	table-layout: fixed;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+.collapsible {
+	background-color: #eee;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: solid;
+	border-radius: 20px;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+}
+
+.active, .collapsible:hover {
+	background-color: #bbb;
+}
+
+.panel {
+	padding: 20px;
+	display: none;
+	background-color: white;
+	overflow: hidden;
+  text-align: center;
+  width: 100%;
+}
+
+.hist-panel {
+  padding: 20px;
+  display: flex;
+  background-color: white;
+  overflow: hidden;
+}
+
+#bar-view {
+  flex: 0 0 50%;
+}
+
+#bar-view2 {
+  flex: 1;
+}
+
